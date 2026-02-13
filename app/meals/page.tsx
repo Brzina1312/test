@@ -82,22 +82,22 @@ export default function MealsPage() {
         dailyCarbs: data.dailyCarbs,
         dailyFat: data.dailyFat,
         meals: {
-          breakfast: data.meals.breakfast.map((m: any, i: number) => ({
+          breakfast: data.meals.breakfast.map((m: Partial<Meal>, i: number) => ({
             id: `breakfast-${Date.now()}-${i}`,
             ...m,
-          })),
-          lunch: data.meals.lunch.map((m: any, i: number) => ({
+          })) as Meal[],
+          lunch: data.meals.lunch.map((m: Partial<Meal>, i: number) => ({
             id: `lunch-${Date.now()}-${i}`,
             ...m,
-          })),
-          dinner: data.meals.dinner.map((m: any, i: number) => ({
+          })) as Meal[],
+          dinner: data.meals.dinner.map((m: Partial<Meal>, i: number) => ({
             id: `dinner-${Date.now()}-${i}`,
             ...m,
-          })),
-          snacks: data.meals.snacks.map((m: any, i: number) => ({
+          })) as Meal[],
+          snacks: data.meals.snacks.map((m: Partial<Meal>, i: number) => ({
             id: `snack-${Date.now()}-${i}`,
             ...m,
-          })),
+          })) as Meal[],
         },
         createdAt: new Date(),
         updatedAt: new Date(),

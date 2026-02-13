@@ -136,7 +136,7 @@ export default function ProfilePage() {
                     </label>
                     <select
                       value={formData.gender}
-                      onChange={(e) => setFormData({ ...formData, gender: e.target.value as any })}
+                      onChange={(e) => setFormData({ ...formData, gender: e.target.value as 'male' | 'female' | 'other' })}
                       disabled={!editing}
                       className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
                     >
@@ -189,7 +189,7 @@ export default function ProfilePage() {
                   </label>
                   <select
                     value={formData.fitnessGoal}
-                    onChange={(e) => setFormData({ ...formData, fitnessGoal: e.target.value as any })}
+                    onChange={(e) => setFormData({ ...formData, fitnessGoal: e.target.value as 'lose_weight' | 'gain_muscle' | 'maintain' | 'improve_endurance' })}
                     disabled={!editing}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
                   >
@@ -205,7 +205,7 @@ export default function ProfilePage() {
                   </label>
                   <select
                     value={formData.activityLevel}
-                    onChange={(e) => setFormData({ ...formData, activityLevel: e.target.value as any })}
+                    onChange={(e) => setFormData({ ...formData, activityLevel: e.target.value as 'sedentary' | 'light' | 'moderate' | 'active' | 'very_active' })}
                     disabled={!editing}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
                   >

@@ -8,7 +8,7 @@ import { useRouter, useParams } from 'next/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { WorkoutPlan, Exercise } from '@/types';
+import { WorkoutPlan } from '@/types';
 import { doc, getDoc, addDoc, collection } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { Play, Pause, SkipForward, CheckCircle, ArrowLeft, Timer } from 'lucide-react';
@@ -27,7 +27,7 @@ export default function WorkoutPlayerPage() {
   const [restTimer, setRestTimer] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
-  const [sessionStartTime] = useState(Date.now());
+  const [sessionStartTime] = useState(() => Date.now());
 
   useEffect(() => {
     if (!loading && !user) {

@@ -64,7 +64,7 @@ export default function OnboardingFlow() {
     }
   };
 
-  const updateFormData = (field: string, value: any) => {
+  const updateFormData = (field: string, value: string | number | string[]) => {
     setFormData({ ...formData, [field]: value });
   };
 

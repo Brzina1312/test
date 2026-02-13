@@ -135,7 +135,7 @@ export default function CoachPage() {
           <Card className="flex-1 flex flex-col">
             <div className="flex-1 overflow-y-auto mb-4 space-y-4 p-4">
               <AnimatePresence>
-                {messages.map((message, index) => (
+                {messages.map((message) => (
                   <motion.div
                     key={message.id}
                     initial={{ opacity: 0, y: 20 }}

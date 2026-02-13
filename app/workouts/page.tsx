@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import Navigation from '@/components/layout/Navigation';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
-import { WorkoutPlan } from '@/types';
+import { WorkoutPlan, Exercise } from '@/types';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { Dumbbell, Clock, TrendingUp, Play } from 'lucide-react';
@@ -75,10 +75,10 @@ export default function WorkoutsPage() {
         description: data.description,
         frequency: data.frequency,
         duration: data.duration,
-        exercises: data.exercises.map((ex: any, index: number) => ({
+        exercises: data.exercises.map((ex: Partial<Exercise>, index: number) => ({
           id: `ex-${Date.now()}-${index}`,
           ...ex,
-        })),
+        })) as Exercise[],
         createdAt: new Date(),
         updatedAt: new Date(),
       };

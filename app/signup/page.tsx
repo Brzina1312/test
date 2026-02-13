@@ -41,8 +41,8 @@ export default function SignUpPage() {
     try {
       await signUp(email, password, name);
       router.push('/onboarding');
-    } catch (error: any) {
-      setError(error.message || 'Failed to create account');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to create account');
     } finally {
       setLoading(false);
     }
@@ -55,8 +55,8 @@ export default function SignUpPage() {
     try {
       await signInWithGoogle();
       router.push('/onboarding');
-    } catch (error: any) {
-      setError(error.message || 'Failed to sign in with Google');
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to sign in with Google');
     } finally {
       setLoading(false);
     }
